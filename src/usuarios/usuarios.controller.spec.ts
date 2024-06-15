@@ -15,4 +15,5 @@ describe("UsuariosController", () => {
     it("should be defined", () => {
         expect(controller).toBeDefined();
     });
+    
 });
