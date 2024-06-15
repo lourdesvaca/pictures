@@ -9,7 +9,12 @@ import { UsuariosController } from "./usuarios/usuarios.controller";
 import { UsuariosService } from "./usuarios/usuarios.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AuthController } from "./auth/auth.controller";
-import { Usuario } from "./usuarios/dto/Usuario";
+import { Usuario } from "./usuarios/dtoUsuario/Usuario";
+import { Imagen } from "./imagenes/dto/Imagen";
+import { Album } from "./albumes/dto/Album";
+import { AlbumximagenesController } from "./albumximagenes/albumximagenes.controller";
+import { AlbumximagenesService } from "./albumximagenes/albumximagenes.service";
+import { AlbumxImagen } from "./albumximagenes/dto/AlbumxImagen";
 
 @Module({
     imports: [
@@ -20,12 +25,12 @@ import { Usuario } from "./usuarios/dto/Usuario";
             username: "root",
             password: "",
             database: "pictures",
-            entities: [Usuario],
+            entities: [Usuario, Imagen, Album, AlbumxImagen],
             synchronize: true, //esto es solo para desarrollo
         }),
         TypeOrmModule.forFeature([Usuario]),
     ],
-    controllers: [AppController, ImagenesController, AlbumesController, UsuariosController, AuthController],
-    providers: [AppService, ImagenesService, AlbumesService, UsuariosService],
+    controllers: [AppController, ImagenesController, AlbumesController, UsuariosController, AuthController, AlbumximagenesController, AlbumximagenesController],
+    providers: [AppService, ImagenesService, AlbumesService, UsuariosService, AlbumximagenesService],
 })
 export class AppModule {}

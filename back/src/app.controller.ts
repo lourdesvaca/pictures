@@ -10,13 +10,8 @@ export class AppController {
         return this.appService.getHello();
     }
 
-    @Get("albumes")
+    @Get("nur")
     getAlbumes(): string {
-        return "aqui va la lista de albumes";
-    }
-
-    @Get("usuarios")
-    getUsuarios(): string {
-        return "aqui va la lista de usuarios";
+        return "prueba get";
     }
 }

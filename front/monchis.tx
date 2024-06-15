@@ -1,1 +1,5 @@
-dónde envío mi cv?
+corregir la relacion de imagenes a albumes
+debe ser N a M 
+ej:
+@ManyToMany(() => Product, (product) => product.sizes)
+products: Product[];
