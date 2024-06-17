@@ -24,7 +24,7 @@ import { AlbumxImagen } from "./albumximagenes/dto/AlbumxImagen";
             port: 3306,
             username: "root",
             password: "",
-            database: "pictures",
+            database: "pictures2",
             entities: [Usuario, Imagen, Album, AlbumxImagen],
             synchronize: true, //esto es solo para desarrollo
         }),

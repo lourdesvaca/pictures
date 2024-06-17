@@ -1,4 +1,4 @@
-import { Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, ManyToOne, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Usuario } from "../../usuarios/dtoUsuario/Usuario";
 import { AlbumxImagen } from "../../albumximagenes/dto/AlbumxImagen";
 
@@ -9,7 +9,7 @@ export class Imagen {
     @ManyToOne(() => Usuario, usuario => usuario.imagenes, { onDelete: "CASCADE" })
     usuario: Usuario;
 
-    @OneToMany(() => AlbumxImagen, albumximagen => albumximagen.imagen)
+    @ManyToMany(() => AlbumxImagen, albumximagen => albumximagen.imagen)
     albumximagenes?: AlbumxImagen[];
 }
 
