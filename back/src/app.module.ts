@@ -15,6 +15,10 @@ import { Album } from "./albumes/dto/Album";
 import { AlbumximagenesController } from "./albumximagenes/albumximagenes.controller";
 import { AlbumximagenesService } from "./albumximagenes/albumximagenes.service";
 import { AlbumxImagen } from "./albumximagenes/dto/AlbumxImagen";
+import { AuthService } from './auth/auth.service';
+import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './usuarios/auth/auth.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
 
 @Module({
     imports: [
@@ -28,9 +32,11 @@ import { AlbumxImagen } from "./albumximagenes/dto/AlbumxImagen";
             entities: [Usuario, Imagen, Album, AlbumxImagen],
             synchronize: true, //esto es solo para desarrollo
         }),
-        TypeOrmModule.forFeature([Usuario]),
+        TypeOrmModule.forFeature([Usuario, Imagen, Album, AlbumxImagen]),
+        AuthModule,
+        UsuariosModule,
     ],
     controllers: [AppController, ImagenesController, AlbumesController, UsuariosController, AuthController, AlbumximagenesController, AlbumximagenesController],
-    providers: [AppService, ImagenesService, AlbumesService, UsuariosService, AlbumximagenesService],
+    providers: [AppService, ImagenesService, AlbumesService, UsuariosService, AlbumximagenesService, AuthService],
 })
 export class AppModule {}
